@@ -20,5 +20,5 @@ If you would like to buy the original writer a coffee for his work: It is greatl
 ![](https://i.imgur.com/rTkiMCa.png)
 
 Original work:
-[Download](https://github.com/QuiNz0r/LGMonitorControl) 
+[here](https://github.com/QuiNz0r/LGMonitorControl) 
 
