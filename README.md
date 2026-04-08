@@ -6,6 +6,8 @@ Forked from QuiNz0r/LGMonitorControl
 Extended funcitonality:
 - drag and drop executable in the grid
 - reactivated Autostart with Windows functionality
+- add high DPI awareness and 4k fixes
+- enable and persist form resizing
 - minor fixes
 
 Original functionality:
