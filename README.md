@@ -5,6 +5,11 @@ Forked from QuiNz0r/LGMonitorControl
 
 Extended funcitonality:
 - drag and drop executable in the grid
+- reactivated Autostart with Windows functionality
+- add high DPI awareness and 4k fixes
+- enable and persist form resizing
+- add grid sorting by column
+- minor fixes and changes
 
 Original functionality:
 - automatically change LG Monitor GameMode profiles depending on running app 
