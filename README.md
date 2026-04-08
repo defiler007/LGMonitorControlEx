@@ -8,7 +8,8 @@ Extended funcitonality:
 - reactivated Autostart with Windows functionality
 - add high DPI awareness and 4k fixes
 - enable and persist form resizing
-- minor fixes
+- add grid sorting by column
+- minor fixes and changes
 
 Original functionality:
 - automatically change LG Monitor GameMode profiles depending on running app 
