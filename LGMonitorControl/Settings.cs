@@ -31,9 +31,18 @@ namespace LGMonitorControl
         [JsonConverter(typeof(StringEnumConverter))]
         public LG.GameMode.Modes DefaultMode { get; set; }
         public bool StartMinimized { get; set; }
-        
 
-        public BindingList<ApplicationData> Applications { get; set; } = new BindingList<ApplicationData>();
+       
+        public int WindowWidth { get; set; } = 0;
+        public int WindowHeight { get; set; } = 0;
+        public int WindowX { get; set; } = -10000; // Default out-of-bounds to know if it's the first run
+        public int WindowY { get; set; } = -10000;
+        public string LastSortColumn { get; set; } = string.Empty;
+        public System.Windows.Forms.SortOrder LastSortOrder { get; set; } = System.Windows.Forms.SortOrder.None;
+
+
+        public SortableBindingList<ApplicationData> Applications { get; set; } = new SortableBindingList<ApplicationData>();
+
 
         public void Save()
         {
@@ -46,7 +55,7 @@ namespace LGMonitorControl
             {
 
             }
-            
+
         }
         public void Load()
         {
@@ -60,32 +69,30 @@ namespace LGMonitorControl
             }
         }
 
-        //public void RegisterInStartup(bool isChecked)
-        //{
-        //    RegistryKey registryKey = Registry.CurrentUser.OpenSubKey
-        //            ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-        //    if (isChecked)
-        //    {
-        //        registryKey.SetValue("LGMonitorControl", Application.ExecutablePath);
-        //    }
-        //    else
-        //    {
-        //        registryKey.DeleteValue("LGMonitorControl");
-        //    }
-        //}
+        public void RegisterInStartup(bool isChecked)
+        {
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey
+                    ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (isChecked)
+            {
+                registryKey.SetValue("LGMonitorControl", Application.ExecutablePath);
+            }
+            else
+            {
+                registryKey.DeleteValue("LGMonitorControl", false);
+            }
+        }
 
-        //public bool GetAutostartState()
-        //{
-        //    RegistryKey registryKey = Registry.CurrentUser.OpenSubKey
-        //            ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+        public bool GetAutostartState()
+        {
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey
+                    ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
-        //    return registryKey.GetValue("LGMonitorControl") != null;
-
-
-        //}
+            return registryKey.GetValue("LGMonitorControl") != null;
+        }
     }
 
-    public class ApplicationData
+        public class ApplicationData
     {
         public string WindowName { get; set; }
 
